@@ -1,0 +1,44 @@
+GET http://localhost:8080/posts/userthree
+
+###
+
+POST http://localhost:8080/post?access_token=471795a9-abb7-4fbd-88cc-e8aea89b2293
+Content-Type: application/json
+
+{
+  "title": "My title",
+  "body": "My first post"
+}
+
+###
+
+POST http://localhost:8080/oauth/token?grant_type=password&username=usertwo&password=password
+Authorization: Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0
+
+###
+POST http://localhost:8080/post?access_token=e72c1674-8c3e-4884-930c-e6806e8df0b5
+Content-Type: application/json
+
+{
+  "title": "Other title",
+  "body": "My first post by usertwo"
+}
+
+###
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "username": "userthree",
+  "password": "userthree",
+  "passwordConfirmation": "userthree"
+}
+
+###
+POST http://localhost:8080/oauth/token?grant_type=password&username=userthree&password=userthree
+Authorization: Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0
+
+###
+GET http://localhost:8080/users
+
+###
